@@ -12,11 +12,11 @@ app.get('/', function (req, res) {
  console.log('test de la console')
 })
  
-app.post('/', function (req, res) {
+/*app.post('/', function (req, res) {
   //res.send(req.body)
- console.log('test de la console')
+ console.log('lid est la suivante :  '+req.body.responseId)
  
-})
+})*/
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 
