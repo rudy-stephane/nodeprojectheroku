@@ -1,6 +1,6 @@
 var express = require('express')
 var pdf = require('pdfkit')
-var pdf = require('ejs')
+var ejs = require('ejs')
 
 var app = express()
 
