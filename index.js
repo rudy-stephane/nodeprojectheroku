@@ -18,7 +18,7 @@ app.use(bodyParser.json());
  
 app.post('/', function (req, res) {
   //res.send(req.body)
- console.log(req.body.toString())
+ console.log(req.body)
  res.end("yes")
 })
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
