@@ -1,13 +1,10 @@
-var http = require('http');
-const PORT = process.env.PORT || 3000;
+const express = require('express')
+const path = require('path')
+const PORT = process.env.PORT || 5000
 
-//Ici nous configurons express pour utiliser body-parser en tant que middle-ware.
-
-var server = http.createServer(function(req, res) {
-res.writeHead(200);
-res.end('Salut tout le monde !');
-});
-
-server.listen(PORT,function(){
-  console.log("Started on PORT 3000");
-})
+express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs')
+  .get('/', (req, res) => res.render('pages/index'))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
