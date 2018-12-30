@@ -5,8 +5,15 @@ const PORT = process.env.PORT || 5000
  
 app.get('/', function (req, res) {
   res.send(req.body)
+ 
+ console.log('test de la console')
 })
  
+app.post('/', function (req, res) {
+  //res.send(req.body)
+ console.log('test de la console')
+ 
+})
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 
