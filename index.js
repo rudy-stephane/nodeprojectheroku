@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5000
  
 app.post('/', function (req, res) {
   //res.send(req.body)
- console.log(req.body.toString())
+ console.log(JSON.parse(req.body))
  res.end("yes")
 })
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
