@@ -1,6 +1,7 @@
 var express = require('express')
 var pdf = require('pdfkit')
 var ejs = require('ejs')
+var bodyParser = require('body-parser')
 
 var app = express()
 
