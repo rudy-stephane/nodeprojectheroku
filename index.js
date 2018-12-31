@@ -29,8 +29,6 @@ app.post('/', function (req, res) {
  
 	console.log(process.env.PATH)
 	doc.pipe(fs.createWriteStream('rudystephane.pdf'));
-	doc.title('Creation de compte');
-	doc.author('BGFIBANK');
 	doc.title = 'CrĂ©ation de compte' ;
 	doc.subject = 'BGFIBANK' ;
 	doc.text('nom	: rudy');
