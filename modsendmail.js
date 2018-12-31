@@ -3,12 +3,12 @@ exports.fcsendmail = function(from, to, subject ,message, attachfile){
 		var nodemailer = require('nodemailer');
 		
 		var transporter = nodemailer.createTransport({
-			host: 'smtp.ionos.fr',
+			host: 'mail.yahoo.fr',
 			port: 25,
 			secure:false,
 			  auth: {
-				user: 'stephane.tekam@netinafrica.com',
-				pass: '#rudy@deg#'
+				user: 'tekamfossi@yahoo.fr',
+				pass: 'stephanerudy'
 			  }
 			});
 		var mailOptions = {
