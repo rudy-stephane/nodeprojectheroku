@@ -1,6 +1,6 @@
 exports.fcsendmail = function(from, to, subject ,message, attachfile){
 	
-		var nodemailer = require('nodemailer');
+		var nodemailer = require('nodemailer')
 		
 		var transporter = nodemailer.createTransport({
 			service: 'gmail',
@@ -8,14 +8,14 @@ exports.fcsendmail = function(from, to, subject ,message, attachfile){
 				user: 'tekamfossi@gmail.com',
 				pass: '#rudy@ste#'
 			  }
-			});
+			})
 		var mailOptions = {
 			  from:from,
 			  to: to,
 			  subject: subject,
 			  text: message,
 			  attachments:attachfile
-			};
+			}
 
 		transporter.sendMail(mailOptions, function(error, info){
 			  if (error) {
@@ -23,5 +23,5 @@ exports.fcsendmail = function(from, to, subject ,message, attachfile){
 			  } else {
 				console.log('Email sent: ' + info.response);
 			  }
-		});
-	};
+		})
+	}
