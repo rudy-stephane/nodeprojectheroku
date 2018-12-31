@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5000
  
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use('/static', express.static(__dirname + '/public'));
+//app.use('/static', express.static(__dirname + '/public'));
 //app.use(express.static(path.join(__dirname, 'public')))
 //app.use(express.static('public'));
 
@@ -27,14 +27,14 @@ app.use('/static', express.static(__dirname + '/public'));
 app.post('/', function (req, res) {
   //res.send(req.body)
  
-	console.log(process.env.PATH)
+	console.log(process.cwd())
 	doc.pipe(fs.createWriteStream('rudystephane.pdf'));
 	doc.title = 'CrĂ©ation de compte' ;
 	doc.subject = 'BGFIBANK' ;
 	doc.text('nom	: rudy');
 	doc.text('prenom	: stephane');
 	doc.text('cni	: 111TEST');
-	doc.image('logo.png', 0, 0, 0)	
+	//doc.image('logo.png', 0, 0, 0)	
 	doc.end();
  console.log(req.body)
  res.end("yes")
