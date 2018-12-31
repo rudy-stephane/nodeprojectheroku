@@ -24,32 +24,32 @@ app.use(bodyParser.json());
  console.log('test de la console')
 })*/
 
-app.post('/', function (req, res) {
-  //res.send(req.body)
-	
-	
-	
- 
-	console.log(process.cwd())
-	doc.pipe(fs.createWriteStream('rudystephane.pdf'));
+	doc.pipe(fs.createWriteStream('test.pdf'));
 	/*doc.title = 'CrĂ©ation de compte' ;
 	doc.subject = 'BGFIBANK' ;
 	doc.text('nom	: rudy');
 	doc.text('prenom	: stephane');
 	doc.text('cni	: 111TEST');*/
 	//doc.image('logo.png', 0, 0, 0)
-	
+
+	doc.end();
+
 	var modsendmail = require('./modsendmail');
-var attachfile = [
-		{
-			name : 'rudystephane.pdf',
-			path : '/app/rudystephane.pdf'
-		}
-	];
-modsendmail.fcsendmail('stephane.tekam@netinafrica.com','tekamfossi@gmail.com','envoie de mail' , 'nouveau webhook d\'envoie de mail', attachfile );
+	var attachfile = [
+			{
+				name : 'test.pdf',
+				path : '/app/test.pdf'
+			}
+		];
+	modsendmail.fcsendmail('stephane.tekam@netinafrica.com','tekamfossi@gmail.com','envoie de mail' , 'nouveau webhook d\'envoie de mail', attachfile );
 
 	
-	doc.end();
+
+
+app.post('/', function (req, res) {
+  //res.send(req.body)
+	
+	console.log(process.cwd())
 	
 	
  //console.log(fs.exists(path.join(process.cwd(),'rudystephane.pdf')))
