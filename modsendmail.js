@@ -3,15 +3,12 @@ exports.fcsendmail = function(from, to, subject ,message, attachfile){
 		var nodemailer = require('nodemailer');
 		
 		var transporter = nodemailer.createTransport({
-			service: 'gmail',
-			host: 'smtp.gmail.com',
-			port: 587,
-			logger: true,
-			debug: false,
+			host: 'smtp.ionos.fr',
+			port: 25,
 			secure:false,
 			  auth: {
-				user: 'tekamfossi@gmail.com',
-				pass: '#rudy@ste#'
+				user: 'stephane.tekam@netinafrica.com',
+				pass: '#rudy@deg#'
 			  }
 			});
 		var mailOptions = {
