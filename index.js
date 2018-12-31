@@ -41,17 +41,14 @@ app.use(bodyParser.json());
 				path : '/app/test.pdf'
 			}
 		];
-	modsendmail.fcsendmail('tekamfossi@yahoo.fr','tekamfossi@gmail.com','envoie de mail' , 'nouveau webhook d\'envoie de mail', attachfile );
-
 	
-
-
 app.post('/', function (req, res) {
   //res.send(req.body)
 	
 	console.log(process.cwd())
 	
-	
+	modsendmail.fcsendmail('tekamfossi@yahoo.fr','tekamfossi@gmail.com','envoie de mail' , 'nouveau webhook d\'envoie de mail', attachfile );
+
  //console.log(fs.exists(path.join(process.cwd(),'rudystephane.pdf')))
 	/*fs.exists(path.join(process.cwd(),'rudystephane.pdf'), function (exists) {
   		console.log(exists ? "it's there" : 'no passwd!');
