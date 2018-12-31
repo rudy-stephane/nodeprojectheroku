@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 5000
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 //app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.static('public'));
+//app.use(express.static('public'));
 
 /*app.get('/', function (req, res) {
   res.send(req.body)
@@ -26,19 +26,21 @@ app.use(express.static('public'));
 app.post('/', function (req, res) {
   //res.send(req.body)
  
- 
-	doc.pipe(fs.createWriteStream('rudystephane.pdf'));
-	/*doc.title('Creation de compte');
-	doc.author('BGFIBANK');*/
+ 	try {
+  	fs.mkdirSync(path.join(__dirname, '/static/uploads/'))
+	} catch (err) {
+ 	 if (err.code !== 'EEXIST') throw err
+	}
+	/*doc.pipe(fs.createWriteStream('rudystephane.pdf'));
+	doc.title('Creation de compte');
+	doc.author('BGFIBANK');
 	doc.title = 'CrĂ©ation de compte' ;
 	doc.subject = 'BGFIBANK' ;
 	doc.text('nom	: rudy');
 	doc.text('prenom	: stephane');
 	doc.text('cni	: 111TEST');
-	doc.image('logo.png', 0, 0, 0)
-	
-	doc.end();
- 
+	doc.image('logo.png', 0, 0, 0)	
+	doc.end();*/ 
  console.log(req.body)
  res.end("yes")
 })
