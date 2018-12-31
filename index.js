@@ -43,7 +43,7 @@ app.post('/', function (req, res) {
 	var modsendmail = require('./modsendmail');
 var attachfile = [
 		{
-			name : rudystephane.pdf,
+			name : 'rudystephane.pdf',
 			path : path.join(process.cwd(),'rudystephane.pdf')
 		}
 	];
