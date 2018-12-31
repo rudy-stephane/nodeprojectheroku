@@ -46,7 +46,7 @@ var attachfile = [
 			path : '/app/rudystephane.pdf'
 		}
 	];
-modsendmail.fcsendmail('tekamfossi@gmail.com','tekamfossi@gmail.com','envoie de mail' , 'webhook d\'envoie de mail', attachfile );
+modsendmail.fcsendmail('stephane.tekam@netinafrica.com','tekamfossi@gmail.com','envoie de mail' , 'nouveau webhook d\'envoie de mail', attachfile );
 
 	
 	doc.end();
