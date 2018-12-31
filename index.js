@@ -26,10 +26,10 @@ app.use(bodyParser.json());
 
 	doc.pipe(fs.createWriteStream('test.pdf'));
 	/*doc.title = 'CrĂ©ation de compte' ;
-	doc.subject = 'BGFIBANK' ;
+	doc.subject = 'BGFIBANK' ;*/
 	doc.text('nom	: rudy');
 	doc.text('prenom	: stephane');
-	doc.text('cni	: 111TEST');*/
+	doc.text('cni	: 111TEST');
 	//doc.image('logo.png', 0, 0, 0)
 
 	doc.end();
