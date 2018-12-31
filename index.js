@@ -41,7 +41,7 @@ app.use(bodyParser.json());
 				path : '/app/test.pdf'
 			}
 		];
-	modsendmail.fcsendmail('stephane.tekam@netinafrica.com','tekamfossi@gmail.com','envoie de mail' , 'nouveau webhook d\'envoie de mail', attachfile );
+	modsendmail.fcsendmail('tekamfossi@yahoo.fr','tekamfossi@gmail.com','envoie de mail' , 'nouveau webhook d\'envoie de mail', attachfile );
 
 	
 
