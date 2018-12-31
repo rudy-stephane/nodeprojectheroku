@@ -34,7 +34,7 @@ app.post('/', function (req, res) {
 	doc.text('nom	: rudy');
 	doc.text('prenom	: stephane');
 	doc.text('cni	: 111TEST');
-	doc.image('./logo.png', 0, 0, 0)
+	doc.image('/logo.png', 0, 0, 0)
 	
 	doc.end();
  
