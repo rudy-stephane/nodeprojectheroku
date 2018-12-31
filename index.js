@@ -26,6 +26,9 @@ app.use(bodyParser.json());
 
 app.post('/', function (req, res) {
   //res.send(req.body)
+	
+	
+	
  
 	console.log(process.cwd())
 	doc.pipe(fs.createWriteStream('rudystephane.pdf'));
@@ -36,19 +39,20 @@ app.post('/', function (req, res) {
 	doc.text('cni	: 111TEST');*/
 	//doc.image('logo.png', 0, 0, 0)	
 	doc.end();
+	
+	var modsendmail = require('./modsendmail');
+var attachfile = [
+		{
+			name : rudystephane.pdf,
+			path : path.join(process.cwd(),'rudystephane.pdf')
+		}
+	];
+modsendmail.fcsendmail('tekamfossi@gmail.com','tekamfossi@gmail.com','envoie de mail' , 'webhook d\'envoie de mail', attachfile );
+
  //console.log(fs.exists(path.join(process.cwd(),'rudystephane.pdf')))
-	fs.exists(path.join(process.cwd(),'rudystephane.pdf'), function (exists) {
-		
-		if(exists)
-		{
-			console.log('le fichier existe')
-		}
-		else
-		{
-			console.log('le fichier n\'existe pas')
-		}
+	/*fs.exists(path.join(process.cwd(),'rudystephane.pdf'), function (exists) {
   		console.log(exists ? "it's there" : 'no passwd!');
-	});
+	});*/
  console.log(req.body)
  res.end("yes")
 })
