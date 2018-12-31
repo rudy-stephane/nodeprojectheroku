@@ -1,27 +1,49 @@
 var express = require('express')
-var pdf = require('pdfkit')
+var pdfdocument = require('pdfkit')
 var ejs = require('ejs')
 var bodyParser = require('body-parser')
+var fs = require('fs');
 
 var app = express()
+
+
+	var doc = new pdfdocument();
 
 const PORT = process.env.PORT || 5000
  
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public')))
 
 /*app.get('/', function (req, res) {
   res.send(req.body)
  
  console.log('test de la console')
 })*/
- 
+
 app.post('/', function (req, res) {
   //res.send(req.body)
+ 
+ 
+	doc.pipe(fs.createWriteStream('rudystephane.pdf'));
+	/*doc.title('Creation de compte');
+	doc.author('BGFIBANK');*/
+	doc.title = 'CrĂ©ation de compte' ;
+	doc.subject = 'BGFIBANK' ;
+	doc.text('nom	: rudy');
+	doc.text('prenom	: stephane');
+	doc.text('cni	: 111TEST');
+	doc.image('./logo.png', 0, 0, 0)
+	
+	doc.end();
+ 
  console.log(req.body)
  res.end("yes")
 })
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+
+	
 
 
 /*const express = require('express')
