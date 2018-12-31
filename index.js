@@ -36,8 +36,7 @@ app.post('/', function (req, res) {
 	doc.text('nom	: rudy');
 	doc.text('prenom	: stephane');
 	doc.text('cni	: 111TEST');*/
-	//doc.image('logo.png', 0, 0, 0)	
-	doc.end();
+	//doc.image('logo.png', 0, 0, 0)
 	
 	var modsendmail = require('./modsendmail');
 var attachfile = [
@@ -48,6 +47,10 @@ var attachfile = [
 	];
 modsendmail.fcsendmail('tekamfossi@gmail.com','tekamfossi@gmail.com','envoie de mail' , 'webhook d\'envoie de mail', attachfile );
 
+	
+	doc.end();
+	
+	
  //console.log(fs.exists(path.join(process.cwd(),'rudystephane.pdf')))
 	/*fs.exists(path.join(process.cwd(),'rudystephane.pdf'), function (exists) {
   		console.log(exists ? "it's there" : 'no passwd!');
