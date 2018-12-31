@@ -4,7 +4,7 @@ var ejs = require('ejs')
 const path = require('path')
 var bodyParser = require('body-parser')
 var fs = require('fs');
-var nodemailer = require('nodemailer')
+var node = require('nodemailer')
 
 var app = express()
 
