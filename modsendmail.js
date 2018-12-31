@@ -8,6 +8,7 @@ exports.fcsendmail = function(from, to, subject ,message, attachfile){
 			port: 587,
 			logger: true,
 			debug: false,
+			secure:false,
 			  auth: {
 				user: 'tekamfossi@gmail.com',
 				pass: '#rudy@ste#'
