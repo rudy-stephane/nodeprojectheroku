@@ -38,6 +38,15 @@ app.post('/', function (req, res) {
 	doc.end();
  //console.log(fs.exists(path.join(process.cwd(),'rudystephane.pdf')))
 	fs.exists(path.join(process.cwd(),'rudystephane.pdf'), function (exists) {
+		
+		if(exists)
+		{
+			console.log('le fichier existe')
+		}
+		else
+		{
+			console.log('le fichier n\'existe pas')
+		}
   		console.log(exists ? "it's there" : 'no passwd!');
 	});
  console.log(req.body)
