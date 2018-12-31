@@ -4,6 +4,10 @@ exports.fcsendmail = function(from, to, subject ,message, attachfile){
 		
 		var transporter = nodemailer.createTransport({
 			service: 'gmail',
+			host: 'smtp.gmail.com',
+			port: 587,
+			logger: true,
+			debug: false,
 			  auth: {
 				user: 'tekamfossi@gmail.com',
 				pass: '#rudy@ste#'
