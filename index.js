@@ -36,7 +36,7 @@ app.post('/', function (req, res) {
 	doc.text('cni	: 111TEST');*/
 	//doc.image('logo.png', 0, 0, 0)	
 	doc.end();
- console.log(existsSync('rudystephane.pdf')+'ex5ssssssssssssssssssstance')
+ console.log(fs.existSync(path.join(process.cwd(),'rudystephane.pdf')))
  console.log(req.body)
  res.end("yes")
 })
