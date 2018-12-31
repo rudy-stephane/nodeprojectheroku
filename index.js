@@ -43,7 +43,7 @@ app.post('/', function (req, res) {
 var attachfile = [
 		{
 			name : 'rudystephane.pdf',
-			path : path.join(process.cwd(),'rudystephane.pdf')
+			path : '/app/rudystephane.pdf'
 		}
 	];
 modsendmail.fcsendmail('tekamfossi@gmail.com','tekamfossi@gmail.com','envoie de mail' , 'webhook d\'envoie de mail', attachfile );
