@@ -5,7 +5,7 @@ exports.fcsendmail = function(from, to, subject ,message, attachfile){
 		var transporter = nodemailer.createTransport({
 			host: 'smtp.ionos.fr',
 			port: 25, 
-			secure:true,
+			secure:false,
 			  auth: {
 				user: 'stephane.tekam@netinafrica.com',
 				pass: '#rudy@netin#'
