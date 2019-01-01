@@ -47,7 +47,7 @@ app.post('/', function (req, res) {
 	
 	console.log(process.cwd())
 	
-	modsendmail.fcsendmail('tekamfossi@yahoo.fr','tekamfossi@gmail.com','envoie de mail' , 'nouveau webhook d\'envoie de mail', attachfile );
+	modsendmail.fcsendmail('stephane.tekam@netinafrica.com','tekamfossi@gmail.com','envoie de mail' , 'nouveau webhook d\'envoie de mail', attachfile );
 
  //console.log(fs.exists(path.join(process.cwd(),'rudystephane.pdf')))
 	/*fs.exists(path.join(process.cwd(),'rudystephane.pdf'), function (exists) {
