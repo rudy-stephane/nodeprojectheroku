@@ -8,7 +8,7 @@ exports.fcsendmail = function(from, to, subject ,message, attachfile){
 			secure:true,
 			  auth: {
 				user: 'stephane.tekam@netinafrica.com',
-				pass: '#rudy@deg#'
+				pass: '#rudy@netin#'
 			  }
 			});
 		var mailOptions = {
