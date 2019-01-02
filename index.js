@@ -34,7 +34,7 @@ app.post('/', function (req, res) {
 	/*fs.exists(path.join(process.cwd(),'rudystephane.pdf'), function (exists) {
   		console.log(exists ? "it's there" : 'no passwd!');
 	});*/
- console.log(req.body)
+ console.log(req.body.outputContexts)
  res.end("yes")
 })
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
