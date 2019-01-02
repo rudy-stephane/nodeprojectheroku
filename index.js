@@ -24,31 +24,12 @@ app.use(bodyParser.json());
  console.log('test de la console')
 })*/
 
-	doc.pipe(fs.createWriteStream('test.pdf'));
-	/*doc.title = 'CrĂ©ation de compte' ;
-	doc.subject = 'BGFIBANK' ;*/
-	doc.text('nom	: rudy');
-	doc.text('prenom	: stephane');
-	doc.text('cni	: 111TEST');
-	//doc.image('logo.png', 0, 0, 0)
-
-	doc.end();
-
-	var modsendmail = require('./modsendmail');
-	var attachfile = [
-			{
-				name : 'test.pdf',
-				path : '/app/test.pdf'
-			}
-		];
 	
 app.post('/', function (req, res) {
-  //res.send(req.body)
+  //res.send(req.body)	
+  //console.log(process.cwd())
 	
-	console.log(process.cwd())
 	
-	modsendmail.fcsendmail('stephane.tekam@netinafrica.com','tekamfossi@gmail.com','envoie de mail' , 'nouveau webhook d\'envoie de mail', attachfile );
-
  //console.log(fs.exists(path.join(process.cwd(),'rudystephane.pdf')))
 	/*fs.exists(path.join(process.cwd(),'rudystephane.pdf'), function (exists) {
   		console.log(exists ? "it's there" : 'no passwd!');
@@ -72,3 +53,28 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))*/
+
+/*
+	module de generation de fichier pdf
+	
+	doc.pipe(fs.createWriteStream('test.pdf'));
+	/*doc.title = 'CrĂ©ation de compte' ;
+	doc.subject = 'BGFIBANK' ;
+	doc.text('nom	: rudy');
+	doc.text('prenom	: stephane');
+	doc.text('cni	: 111TEST');
+	//doc.image('logo.png', 0, 0, 0)
+
+	doc.end();
+
+	var modsendmail = require('./modsendmail');
+	var attachfile = [
+			{
+				name : 'test.pdf',
+				path : '/app/test.pdf'
+			}
+		];
+	modsendmail.fcsendmail('stephane.tekam@netinafrica.com','tekamfossi@gmail.com','envoie de mail' , 'nouveau webhook d\'envoie de mail', attachfile );
+
+
+*/
