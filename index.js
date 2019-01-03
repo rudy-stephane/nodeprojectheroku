@@ -17,23 +17,8 @@ app.use(bodyParser.json());
 //app.use('/static', express.static(__dirname + '/public'));
 //app.use(express.static(path.join(__dirname, 'public')))
 //app.use(express.static('public'));
-
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-  host: "db767806418.hosting-data.io",
-  user: "dbo767806418",
-  password: "Pa$$w0rd",
-	
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
-
-
-
+var hello ;
+var variable;
 /*app.get('/', function (req, res) {
   res.send(req.body)
  
@@ -48,7 +33,7 @@ app.post('/', function (req, res) {
 	/*fs.exists(path.join(process.cwd(),'rudystephane.pdf'), function (exists) {
   		console.log(exists ? "it's there" : 'no passwd!');
 	});*/
- console.log('valeur recupérée : '+req.body.queryResult.outputContexts[0].outputContexts)
+ console.log('valeur recupérée : '+req.body.queryResult.queryText)
  res.end("yes")
 })
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
