@@ -18,13 +18,27 @@ app.use(bodyParser.json());
 //app.use(express.static(path.join(__dirname, 'public')))
 //app.use(express.static('public'));
 
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "db767806418.hosting-data.io",
+  user: "dbo767806418",
+  password: "Pa$$w0rd",
+	
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
+
+
+
 /*app.get('/', function (req, res) {
   res.send(req.body)
  
  console.log('test de la console')
 })*/
-
-	
 app.post('/', function (req, res) {
   //res.send(req.body)	
   //console.log(process.cwd())
