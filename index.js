@@ -28,12 +28,12 @@ app.post('/', function (req, res) {
   //res.send(req.body)	
   //console.log(process.cwd())
     res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify({ a: 1 }));
  //console.log(fs.exists(path.join(process.cwd(),'rudystephane.pdf')))
 	/*fs.exists(path.join(process.cwd(),'rudystephane.pdf'), function (exists) {
   		console.log(exists ? "it's there" : 'no passwd!');
 	});*/
  console.log('valeur recupérée : '+req.body.age)
+ res.send(JSON.stringify({ a: req.body.age }));
  res.end("yes")
 })
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
