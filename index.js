@@ -27,8 +27,8 @@ var variable;
 app.post('/', function (req, res) {
   //res.send(req.body)	
   //console.log(process.cwd())
-	
-	
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({ a: 1 }));
  //console.log(fs.exists(path.join(process.cwd(),'rudystephane.pdf')))
 	/*fs.exists(path.join(process.cwd(),'rudystephane.pdf'), function (exists) {
   		console.log(exists ? "it's there" : 'no passwd!');
