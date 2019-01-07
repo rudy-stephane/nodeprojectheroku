@@ -5,6 +5,7 @@ const path = require('path')
 var bodyParser = require('body-parser')
 var fs = require('fs');
 var node = require('nodemailer')
+var mkdirp = require('mkdirp');
 
 var app = express()
 var doc = new pdfdocument();
@@ -33,17 +34,37 @@ app.post('/webhook', function(req,res){
 	numero = req.body.telephone
 	cni = req.body.cni
 	mail = req.body.mail
+    	const folderName = './'+cni
+	try {
+	      if (!fs.existsSync(folderName)){
+	          fs.mkdirSync(folderName)
+		  console.log('repertoire créé')
+	      }
+	} catch (err) {
+	  console.error(err)
+	}
+	doc.pipe(fs.createWriteStream('./'+cni+'/'+nom+'.pdf'));
+	doc.title = 'CrĂ©ation de compte' ;
+	doc.subject = 'BGFIBANK' ;
+	doc.text('noms & prenoms : '+nom);
+	doc.text('numero : '+numero);
+	doc.text('cni : '+cni);
+	doc.text('mail : '+mail);
+
+	doc.end();
 
 })
 app.post('/', function (req, res) {
-  
+  if(res.body.rep == 'sendfile'){
+  	console.log(process.cwd())
+  }
 	//console.log(process.cwd())
-    res.setHeader('Content-Type', 'application/json');
+    //res.setHeader('Content-Type', 'application/json');
  //console.log(fs.exists(path.join(process.cwd(),'rudystephane.pdf')))
 	/*fs.exists(path.join(process.cwd(),'rudystephane.pdf'), function (exists) {
   		console.log(exists ? "it's there" : 'no passwd!');
 	});*/
-	const testFolder = __dirname;
+	/*const testFolder = __dirname;
 	fs.readdir(testFolder, (err, files) => {
 	  files.forEach(file => {
 	    console.log(file);
@@ -54,7 +75,7 @@ app.post('/', function (req, res) {
 	})
  console.log('valeur recupérée : '+req.body.file)
  res.send(JSON.stringify({ a: req.body.file}));
- res.end("yes")
+ res.end("yes")*/
 })
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
