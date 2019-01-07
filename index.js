@@ -55,9 +55,9 @@ app.post('/webhook', function(req,res){
 
 })
 app.post('/', function (req, res) {
-  if(res.body.rep == 'sendfile'){
-  	console.log(process.cwd())
-  }
+  //if(res.body.rep == 'sendfile'){
+  	console.log(req.body.rep)
+  //}
 	//console.log(process.cwd())
     //res.setHeader('Content-Type', 'application/json');
  //console.log(fs.exists(path.join(process.cwd(),'rudystephane.pdf')))
