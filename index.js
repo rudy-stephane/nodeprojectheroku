@@ -31,6 +31,12 @@ app.post('/', function (req, res) {
 	/*fs.exists(path.join(process.cwd(),'rudystephane.pdf'), function (exists) {
   		console.log(exists ? "it's there" : 'no passwd!');
 	});*/
+	const testFolder = process.cwd();
+	fs.readdir(testFolder, (err, files) => {
+	  files.forEach(file => {
+	    console.log(file);
+	  });
+	})
  console.log('valeur recupérée : '+req.body.file)
  res.send(JSON.stringify({ a: req.body.file}));
  res.end("yes")
