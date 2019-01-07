@@ -31,8 +31,8 @@ app.post('/', function (req, res) {
 	/*fs.exists(path.join(process.cwd(),'rudystephane.pdf'), function (exists) {
   		console.log(exists ? "it's there" : 'no passwd!');
 	});*/
- console.log('valeur recupérée : '+req.body.age)
- res.send(JSON.stringify({ a: req.body.age }));
+ console.log('valeur recupérée : '+req.body)
+ res.send(JSON.stringify({ a: req.body}));
  res.end("yes")
 })
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
