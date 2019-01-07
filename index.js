@@ -22,10 +22,22 @@ var variable;
 const folderName = './server'
 const zipFolder = require('zip-a-folder')
 
+// identification
+var nom;
+var numero;
+var cni ;
+var mail ;
 
+app.post('/webhook', function(req,res){
+	nom = req.body.nom
+	numero = req.body.telephone
+	cni = req.body.cni
+	mail = req.body.mail
+
+})
 app.post('/', function (req, res) {
-  //res.send(req.body)	
-  //console.log(process.cwd())
+  
+	//console.log(process.cwd())
     res.setHeader('Content-Type', 'application/json');
  //console.log(fs.exists(path.join(process.cwd(),'rudystephane.pdf')))
 	/*fs.exists(path.join(process.cwd(),'rudystephane.pdf'), function (exists) {
@@ -37,7 +49,7 @@ app.post('/', function (req, res) {
 	    console.log(file);
 	  });
 	})
-	fs.exists(path.join(process.cwd()+'/public/','logo.png'), function (exists) {
+	fs.exists(path.join('/app/','server.zip'), function (exists) {
   		console.log(exists ? "it's there" : 'no passwd!');
 	})
  console.log('valeur recupérée : '+req.body.file)
