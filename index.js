@@ -19,7 +19,6 @@ app.use(bodyParser.json());
 var hello ;
 var variable;
 // création de repertoire et zippage du repertoire
-const fs = require('fs')
 const folderName = './server'
 const zipFolder = require('zip-a-folder')
 
