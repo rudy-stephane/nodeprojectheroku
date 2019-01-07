@@ -7,8 +7,7 @@ var fs = require('fs');
 var node = require('nodemailer')
 
 var app = express()
-
-	var doc = new pdfdocument();
+var doc = new pdfdocument();
 
 const PORT = process.env.PORT || 5000
  
@@ -19,12 +18,44 @@ app.use(bodyParser.json());
 //app.use(express.static('public'));
 var hello ;
 var variable;
-/*app.get('/', function (req, res) {
-  res.send(req.body)
- 
- console.log('test de la console')
-})*/
+// création de repertoire et zippage du repertoire
+const fs = require('fs')
+const folderName = './server'
+const zipFolder = require('zip-a-folder')
+
+
 app.post('/', function (req, res) {
+	
+	try {
+  if (!fs.existsSync(folderName)){
+    fs.mkdirSync(folderName)
+	console.log('repertoire créer')
+  }
+} catch (err) {
+  console.error(err)
+}
+class ZipAFolder {
+    static main() {
+        zipFolder.zipFolder('./server', './server.zip', function(err) {
+            if(err) {
+                console.log('Something went wrong!', err);
+            }else{
+				console.log('repertoire zippé');
+				const folderNameZip = './server.zip'
+				if (fs.existsSync(folderNameZip)){
+					console.log('le repertoire zippé existe')
+				 }else{
+					 console.log('le repertoire zippé n\'existe pas')
+				 }
+			}
+        });
+		
+		
+    }
+}
+ZipAFolder.main();
+	
+	
   //res.send(req.body)	
   //console.log(process.cwd())
     res.setHeader('Content-Type', 'application/json');
