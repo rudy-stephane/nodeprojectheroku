@@ -37,7 +37,7 @@ app.post('/', function (req, res) {
 	    console.log(file);
 	  });
 	})
-	fs.exists(path.join(process.cwd(),'server.zip'), function (exists) {
+	fs.exists(path.join(process.cwd(),'rudystephane.pdf'), function (exists) {
   		console.log(exists ? "it's there" : 'no passwd!');
 	})
  console.log('valeur recupérée : '+req.body.file)
