@@ -60,7 +60,7 @@ app.post('/', function (req, res) {
   	console.log(req.body.rep+'  valeur cherchée')
 	  var file = fs.createWriteStream("file.gif");
 	var fileup = req.body.fileurl
-	var request = http.get(fileup, function(response) {
+	var request = https.get(fileup, function(response) {
 	  response.pipe(file);
 	});
   }
