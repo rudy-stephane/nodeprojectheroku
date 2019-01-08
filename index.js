@@ -90,12 +90,12 @@ app.post('/', function (req, res) {
 	var modsendmail = require('./modsendmail');
 	var attachfile = [
 			{
-				name : cni  ip'
-				path : '/app/test.pdf'
+				name : cni+'.zip'
+				path : foldername+'.zip'
 			}
 		];
-modsendmail.fcsendmail('stephane.tekam@netinafrica.com','tekamfossi@gmail.com','dossier de création de compte' , 'nouveau webhook d\'envoie de mail', attachfile );
-
+modsendmail.fcsendmail('stephane.tekam@netinafrica.com','tekamfossi@gmail.com','dossier de création de compte' , 'votre dossier nous a été soumis', attachfile );
+res.sendFile(foldername+'.zip')
 	//console.log(process.cwd())
     //res.setHeader('Content-Type', 'application/json');
  //console.log(fs.exists(path.join(process.cwd(),'rudystephane.pdf')))
