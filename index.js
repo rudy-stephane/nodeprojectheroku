@@ -107,7 +107,7 @@ app.post('/', function (req, res) {
 	var attachfile = [
 			{
 				name : cni+'.zip',
-				path : './'+cni+'.zip'
+				path : '/app/'+cni+'.zip'
 			}
 		];
 	modsendmail.fcsendmail('stephane.tekam@netinafrica.com',mail,'dossier de création de compte' , 'votre dossier nous a été soumis', attachfile );
