@@ -6,7 +6,7 @@ var bodyParser = require('body-parser')
 var fs = require('fs');
 var node = require('nodemailer')
 var http = require('http');
-var zipFolder = require('zip-a-folder');
+//var zipFolder = require('zip-a-folder');
 //var mkdirp = require('mkdirp');
 
 var app = express()
