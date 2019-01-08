@@ -46,7 +46,7 @@ app.post('/webhook', function(req,res){
 	cni = req.body.cni
 	mail = req.body.mail
 	console.log(cni)
-    	folderName = __dirname +'/'+ cni
+    	folderName = './'+ cni
 	try {
 	      if (!fs.existsSync(folderName)){
 	          fs.mkdirSync(folderName)
@@ -56,7 +56,7 @@ app.post('/webhook', function(req,res){
 	  console.error(err)
 	}
 	try {
-		doc.pipe(fs.createWriteStream('./'+cni+'/'+'testre.pdf'));
+		doc.pipe(fs.createWriteStream('./'+cni+'/'+nom+'.pdf'));
 		doc.title = 'CrĂ©ation de compte' ;
 		doc.subject = 'BGFIBANK' ;
 		doc.text('noms & prenoms : '+nom);
