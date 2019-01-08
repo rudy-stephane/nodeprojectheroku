@@ -28,8 +28,8 @@ const zipFolder = require('zip-a-folder')
 //fonction permettant d'extraire un caractère dans une chaine
 function remove_character(str, char_pos) 
  {
-  part1 = str.substring(0, char_pos);
-  part2 = str.substring(char_pos + 1, str.length);
+  var part1 = str.substring(0, char_pos);
+  var part2 = str.substring(char_pos + 1, str.length);
   return (part1 + part2);
  }
 
@@ -82,7 +82,7 @@ app.post('/', function (req, res) {
 	  console.log(req.body.rep+'  valeur cherchée')
 	  console.log(req.body.rep+'  valeur cherchée')
 	  c = c + 1 // indice de la piece envoyée
-	  var file = fs.createWriteStream('./'+cni+'/piece'+c+'.gif');
+	var file = fs.createWriteStream('./'+cni+'/piece'+c+'.gif');
 	var fileup = remove_character(req.body.fileurl)
 	var request = http.get(fileup, function(response) {
 	  response.pipe(file);
