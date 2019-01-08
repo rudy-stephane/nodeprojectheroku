@@ -67,6 +67,13 @@ app.post('/webhook', function(req,res){
 	} catch (err) {
 	  console.error(err)
 	}
+	
+	//const testFolder = __dirname;
+	fs.readdir(folderName, (err, files) => {
+	  files.forEach(file => {
+	    console.log(file);
+	  });
+	})
 
 })
 var c = 0 ;
