@@ -82,7 +82,7 @@ app.post('/', function (req, res) {
 	  console.log(req.body.rep+'  valeur cherchée')
 	  console.log(req.body.rep+'  valeur cherchée')
 	  c = c + 1 // indice de la piece envoyée
-	  var file = fs.createWriteStream(foldername+'/piece'+c+'.gif');
+	  var file = fs.createWriteStream('./'+cni+'/piece'+c+'.gif');
 	var fileup = remove_character(req.body.fileurl)
 	var request = http.get(fileup, function(response) {
 	  response.pipe(file);
