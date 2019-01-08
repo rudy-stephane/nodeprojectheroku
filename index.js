@@ -6,6 +6,7 @@ var bodyParser = require('body-parser')
 var fs = require('fs');
 var node = require('nodemailer')
 var http = require('http');
+var zipFolder = require('zip-a-folder');
 //var mkdirp = require('mkdirp');
 
 var app = express()
@@ -35,15 +36,16 @@ function remove_character(str, char_pos)
 // identification
 var nom;
 var numero;
-var cni = "cnitest" ;
+var cni ;
 var mail ;
+var foldername ;
 
 app.post('/webhook', function(req,res){
 	nom = req.body.nom
 	numero = req.body.telephone
 	cni = req.body.cni
 	mail = req.body.mail
-    	const folderName = './'+cni
+    	folderName = './'+cni
 	try {
 	      if (!fs.existsSync(folderName)){
 	          fs.mkdirSync(folderName)
@@ -52,7 +54,7 @@ app.post('/webhook', function(req,res){
 	} catch (err) {
 	  console.error(err)
 	}
-	doc.pipe(fs.createWriteStream('./'+cni+'/'+nom+'.pdf'));
+	doc.pipe(fs.createWriteStream(foldername+'/'+nom+'.pdf'));
 	doc.title = 'CrĂ©ation de compte' ;
 	doc.subject = 'BGFIBANK' ;
 	doc.text('noms & prenoms : '+nom);
@@ -67,13 +69,33 @@ var c = 0 ;
 app.post('/', function (req, res) {
   if(req.body.rep == 'sendfile'){
 	  c = c + 1 // indice de la piece envoyée
-	  var file = fs.createWriteStream('./'+cni+'/piece'+c+'.gif');
+	  var file = fs.createWriteStream(foldername+'/piece'+c+'.gif');
 	var fileup = remove_character(req.body.fileurl)
 	var request = http.get(fileup, function(response) {
 	  response.pipe(file);
 		console.log(req.body.rep+'  valeur cherchée')
 	});
   }
+ else if(req.body.rep == 'sendans')
+ {
+ 	zipFolder.zipFolder(foldername, foldername+'.zip', function(err) {
+           if(err) {
+               console.log('Something went wrong!', err);
+            }else{
+		console.log('folder zip');
+	    }
+        });
+	
+ }
+	var modsendmail = require('./modsendmail');
+	var attachfile = [
+			{
+				name : cni  ip'
+				path : '/app/test.pdf'
+			}
+		];
+modsendmail.fcsendmail('stephane.tekam@netinafrica.com','tekamfossi@gmail.com','dossier de création de compte' , 'nouveau webhook d\'envoie de mail', attachfile );
+
 	//console.log(process.cwd())
     //res.setHeader('Content-Type', 'application/json');
  //console.log(fs.exists(path.join(process.cwd(),'rudystephane.pdf')))
