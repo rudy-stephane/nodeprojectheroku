@@ -83,8 +83,13 @@ app.post('/', function (req, res) {
 	  console.log(req.body.rep+'  valeur cherchée')
 	  c = c + 1 // indice de la piece envoyée
 	var file = fs.createWriteStream('./'+cni+'/piece'+c+'.gif');
-	var fileup = remove_character(req.body.fileurl)
-	var request = http.get(fileup, function(response) {
+	var fileup = req.body.fileurl
+	console.log(fileup.length)
+	var debut = fileup.substring(0, 4);
+	var fin = fileup.substring(5,fileup.length);
+	var total = debut + fin
+	console.log(total)
+	var request = http.get(total, function(response) {
 	  response.pipe(file);
 		console.log(req.body.rep+'  valeur cherchée')
 	});
