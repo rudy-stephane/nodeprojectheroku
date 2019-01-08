@@ -90,7 +90,7 @@ app.post('/', function (req, res) {
 	var modsendmail = require('./modsendmail');
 	var attachfile = [
 			{
-				name : cni+'.zip'
+				name : cni+'.zip',
 				path : foldername+'.zip'
 			}
 		];
