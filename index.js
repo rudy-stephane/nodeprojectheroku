@@ -113,6 +113,7 @@ app.post('/', function (req, res) {
 	modsendmail.fcsendmail('stephane.tekam@netinafrica.com',mail,'dossier de création de compte' , 'votre dossier nous a été soumis', attachfile );
 	res.sendFile(foldername+'.zip')	
  }
+	res.send({result : 'ok'})
 	//console.log(process.cwd())
     //res.setHeader('Content-Type', 'application/json');
  //console.log(fs.exists(path.join(process.cwd(),'rudystephane.pdf')))
