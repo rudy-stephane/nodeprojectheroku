@@ -96,7 +96,7 @@ app.post('/', function (req, res) {
   }
  else if(req.body.rep == 'sendans')
  {
- 	zipFolder.zipFolder(foldername, foldername+'.zip', function(err) {
+ 	zipFolder.zipFolder('./'+cni, './'+cni+'.zip', function(err) {
            if(err) {
                console.log('Something went wrong!', err);
             }else{
@@ -107,11 +107,11 @@ app.post('/', function (req, res) {
 	var attachfile = [
 			{
 				name : cni+'.zip',
-				path : foldername+'.zip'
+				path : './'+cni+'.zip'
 			}
 		];
 	modsendmail.fcsendmail('stephane.tekam@netinafrica.com',mail,'dossier de création de compte' , 'votre dossier nous a été soumis', attachfile );
-	res.sendFile(foldername+'.zip')	
+	res.sendFile('./'+cni+'.zip')	
  }
 	res.send({result : 'ok'})
 	//console.log(process.cwd())
