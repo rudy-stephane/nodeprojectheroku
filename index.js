@@ -93,6 +93,7 @@ app.post('/', function (req, res) {
 	  response.pipe(file);
 		console.log(req.body.rep+'  valeur cherchée')
 	});
+	  res.send({result : 'ok'})
   }
  else if(req.body.rep == 'sendans')
  {
@@ -113,7 +114,8 @@ app.post('/', function (req, res) {
 	modsendmail.fcsendmail('stephane.tekam@netinafrica.com',mail,'dossier de création de compte' , 'votre dossier nous a été soumis', attachfile );
 	res.sendFile('/app/'+cni+'/'+nom+'.pdf')	
  }
-	res.send({result : 'ok'})
+	//res.sendFile('/app/'+cni+'/'+nom+'.pdf')
+	//res.send({result : 'ok'})
 	//console.log(process.cwd())
     //res.setHeader('Content-Type', 'application/json');
  //console.log(fs.exists(path.join(process.cwd(),'rudystephane.pdf')))
