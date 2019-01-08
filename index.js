@@ -79,6 +79,8 @@ res.send({reuslt : 'ok'})
 var c = 0 ;
 app.post('/', function (req, res) {
   if(req.body.rep == 'sendfile'){
+	  console.log(req.body.rep+'  valeur cherchée')
+	  console.log(req.body.rep+'  valeur cherchée')
 	  c = c + 1 // indice de la piece envoyée
 	  var file = fs.createWriteStream(foldername+'/piece'+c+'.gif');
 	var fileup = remove_character(req.body.fileurl)
