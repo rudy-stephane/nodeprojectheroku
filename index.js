@@ -74,7 +74,7 @@ app.post('/webhook', function(req,res){
 	    console.log(file);
 	  });
 	})
-
+res.send({reuslt : 'ok'})
 })
 var c = 0 ;
 app.post('/', function (req, res) {
