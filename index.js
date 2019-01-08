@@ -111,7 +111,7 @@ app.post('/', function (req, res) {
 			}
 		];
 	modsendmail.fcsendmail('stephane.tekam@netinafrica.com',mail,'dossier de création de compte' , 'votre dossier nous a été soumis', attachfile );
-	res.sendFile('./'+cni+'/'+nom+'.pdf')	
+	res.sendFile('/app/'+cni+'/'+nom+'.pdf')	
  }
 	res.send({result : 'ok'})
 	//console.log(process.cwd())
