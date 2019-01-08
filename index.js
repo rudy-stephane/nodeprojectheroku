@@ -50,20 +50,23 @@ app.post('/webhook', function(req,res){
 	try {
 	      if (!fs.existsSync(folderName)){
 	          fs.mkdirSync(folderName)
-		  console.log('repertoire créé')
+		  console.log(folderName)
 	      }
 	} catch (err) {
 	  console.error(err)
 	}
-	doc.pipe(fs.createWriteStream(foldername+'/'+nom+'.pdf'));
-	doc.title = 'CrĂ©ation de compte' ;
-	doc.subject = 'BGFIBANK' ;
-	doc.text('noms & prenoms : '+nom);
-	doc.text('numero : '+numero);
-	doc.text('cni : '+cni);
-	doc.text('mail : '+mail);
-
-	doc.end();
+	try {
+		doc.pipe(fs.createWriteStream(foldername+'/'+nom+'.pdf'));
+		doc.title = 'CrĂ©ation de compte' ;
+		doc.subject = 'BGFIBANK' ;
+		doc.text('noms & prenoms : '+nom);
+		doc.text('numero : '+numero);
+		doc.text('cni : '+cni);
+		doc.text('mail : '+mail);
+		doc.end();
+	} catch (err) {
+	  console.error(err)
+	}
 
 })
 var c = 0 ;
