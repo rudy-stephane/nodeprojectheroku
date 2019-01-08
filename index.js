@@ -6,7 +6,7 @@ var bodyParser = require('body-parser')
 var fs = require('fs');
 var node = require('nodemailer')
 var http = require('http');
-//var zipFolder = require('zip-a-folder');
+var zipFolder = require('zip-a-folder');
 //var mkdirp = require('mkdirp');
 
 var app = express()
@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 var hello ;
 var variable;
 // création de repertoire et zippage du repertoire
-const folderName = './server'
+//const folderName = './server'
 const zipFolder = require('zip-a-folder')
 
 //fonction permettant d'extraire un caractère dans une chaine
