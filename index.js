@@ -5,7 +5,7 @@ const path = require('path')
 var bodyParser = require('body-parser')
 var fs = require('fs');
 var node = require('nodemailer')
-var http = require('https');
+var http = require('http');
 //var mkdirp = require('mkdirp');
 
 var app = express()
@@ -24,10 +24,18 @@ var variable;
 const folderName = './server'
 const zipFolder = require('zip-a-folder')
 
+//fonction permettant d'extraire un caractère dans une chaine
+function remove_character(str, char_pos) 
+ {
+  part1 = str.substring(0, char_pos);
+  part2 = str.substring(char_pos + 1, str.length);
+  return (part1 + part2);
+ }
+
 // identification
 var nom;
 var numero;
-var cni ;
+var cni = "cnitest" ;
 var mail ;
 
 app.post('/webhook', function(req,res){
@@ -55,13 +63,15 @@ app.post('/webhook', function(req,res){
 	doc.end();
 
 })
+var c = 0 ;
 app.post('/', function (req, res) {
   if(req.body.rep == 'sendfile'){
-  	console.log(req.body.rep+'  valeur cherchée')
-	  var file = fs.createWriteStream("file.gif");
-	var fileup = req.body.fileurl
-	var request = https.get(fileup, function(response) {
+	  c = c + 1 // indice de la piece envoyée
+	  var file = fs.createWriteStream('./'+cni+'/piece'+c+'.gif');
+	var fileup = remove_character(req.body.fileurl)
+	var request = http.get(fileup, function(response) {
 	  response.pipe(file);
+		console.log(req.body.rep+'  valeur cherchée')
 	});
   }
 	//console.log(process.cwd())
