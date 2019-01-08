@@ -45,7 +45,8 @@ app.post('/webhook', function(req,res){
 	numero = req.body.telephone
 	cni = req.body.cni
 	mail = req.body.mail
-    	folderName = './'+cni
+	console.log(cni)
+    	folderName = '/app/'+cni
 	try {
 	      if (!fs.existsSync(folderName)){
 	          fs.mkdirSync(folderName)
