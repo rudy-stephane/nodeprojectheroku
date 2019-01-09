@@ -6,6 +6,7 @@ var bodyParser = require('body-parser')
 var fs = require('fs');
 var node = require('nodemailer')
 var http = require('http');
+var url = require("url");
 //var zipFolder = require('zip-a-folder');
 //var mkdirp = require('mkdirp');
 
@@ -82,13 +83,17 @@ app.post('/', function (req, res) {
 	  console.log(req.body.rep+'  valeur cherchée')
 	  console.log(req.body.rep+'  valeur cherchée')
 	  c = c + 1 // indice de la piece envoyée
-	var file = fs.createWriteStream('./'+cni+'/piece'+c+'.gif');
+	
+	//var file = fs.createWriteStream('./'+cni+'/piece'+c+'.gif');
 	var fileup = req.body.fileurl
 	console.log(fileup.length)
 	var debut = fileup.substring(0, 4);
 	var fin = fileup.substring(5,fileup.length);
 	var total = debut + fin
+	var parsed = url.parse(total)
+	var file = path.basename(parsed.pathname)
 	console.log(total)
+	 console.log('***********'+file+'************')
 	var request = http.get(total, function(response) {
 	  response.pipe(file);
 		console.log(req.body.rep+'  valeur cherchée')
