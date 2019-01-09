@@ -91,7 +91,8 @@ app.post('/', function (req, res) {
 	var fin = fileup.substring(5,fileup.length);
 	var total = debut + fin
 	var parsed = url.parse(total)
-	var file = path.basename(parsed.pathname)
+	var filecreate = path.basename(parsed.pathname)
+	var file = fs.createWriteStream('./'+cni+'/'+filecreate)
 	console.log(total)
 	 console.log('***********'+file+'************')
 	var request = http.get(total, function(response) {
