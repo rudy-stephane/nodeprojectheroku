@@ -42,22 +42,23 @@ var mail ;
 var foldername ;
 
 app.post('/webhook', function(req,res){
-	nom = req.body.nom
-	numero = req.body.telephone
-	cni = req.body.cni
-	mail = req.body.mail
-	console.log(cni)
-    	folderName = './'+ cni
+	nom = req.body.nom;
+	numero = req.body.telephone;
+	cni = req.body.cni;
+	mail = req.body.mail;
+	console.log(cni);
+    	folderName = './'+ cni;
 	try {
 	      if (!fs.existsSync(folderName)){
-	          fs.mkdirSync(folderName)
-		  console.log(folderName)
+	          fs.mkdirSync(folderName);
+		  console.log(folderName);
 	      }
 	} catch (err) {
-	  console.error(err)
+	  console.error(err);
 	}
 	try {
-		doc.pipe(fs.createWriteStream('./'+cni+'/'+nom+'.pdf'));
+		var ws = fs.createWriteStream('./'+cni+'/'+nom+'.pdf');
+		doc.pipe(ws);
 		doc.title = 'CrĂ©ation de compte' ;
 		doc.subject = 'BGFIBANK' ;
 		doc.text('noms & prenoms : '+nom);
@@ -66,7 +67,7 @@ app.post('/webhook', function(req,res){
 		doc.text('mail : '+mail);
 		doc.end();
 	} catch (err) {
-	  console.error(err)
+	  console.error(err);
 	}
 	
 	//const testFolder = __dirname;
@@ -75,31 +76,31 @@ app.post('/webhook', function(req,res){
 	    console.log(file);
 	  });
 	})
-res.send({reuslt : 'ok'})
+res.send({reuslt : 'ok'});
 })
 var c = 0 ;
 app.post('/', function (req, res) {
   if(req.body.rep == 'sendfile'){
-	  console.log(req.body.rep+'  valeur cherchée')
-	  console.log(req.body.rep+'  valeur cherchée')
+	  console.log(req.body.rep+'  valeur cherchée');
+	  console.log(req.body.rep+'  valeur cherchée');
 	  c = c + 1 // indice de la piece envoyée
 	
 	//var file = fs.createWriteStream('./'+cni+'/piece'+c+'.gif');
-	var fileup = req.body.fileurl
-	console.log(fileup.length)
+	var fileup = req.body.fileurl;
+	console.log(fileup.length);
 	var debut = fileup.substring(0, 4);
 	var fin = fileup.substring(5,fileup.length);
-	var total = debut + fin
-	var parsed = url.parse(total)
-	var filecreate = path.basename(parsed.pathname)
-	var file = fs.createWriteStream('./'+cni+'/'+filecreate)
-	console.log(total)
-	 console.log('***********'+file+'************')
+	var total = debut + fin;
+	var parsed = url.parse(total);
+	var filecreate = path.basename(parsed.pathname);
+	var file = fs.createWriteStream('./'+cni+'/'+filecreate);
+	console.log(total);
+	 console.log('***********'+file+'************');
 	var request = http.get(total, function(response) {
 	  response.pipe(file);
-		console.log(req.body.rep+'  valeur cherchée')
+		console.log(req.body.rep+'  valeur cherchée');
 	});
-	  res.send({result : 'ok'})
+	  res.send({result : 'ok'});
   }
  else if(req.body.rep == 'sendans')
  {
@@ -118,7 +119,7 @@ app.post('/', function (req, res) {
 			}
 		];
 	modsendmail.fcsendmail('stephane.tekam@netinafrica.com',mail,'dossier de création de compte' , 'votre dossier nous a été soumis', attachfile );
-	res.sendFile('/app/'+cni+'/'+nom+'.pdf')	
+	res.sendFile('/app/'+cni+'/'+nom+'.pdf');	
  }
 	//res.sendFile('/app/'+cni+'/'+nom+'.pdf')
 	//res.send({result : 'ok'})
