@@ -67,7 +67,6 @@ app.post('/webhook', function(req,res){
 		doc.text('cni : '+cni);
 		doc.text('mail : '+mail);
 		doc.end();
-		ws = null ;
 	} catch (err) {
 	  console.error(err);
 	}
