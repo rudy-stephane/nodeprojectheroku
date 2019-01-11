@@ -47,6 +47,7 @@ app.post('/webhook', function(req,res){
 	cni = req.body.cni;
 	mail = req.body.mail;
 	console.log(cni);
+	console.log(nom);
     	folderName = './'+ cni;
 	try {
 	      if (!fs.existsSync(folderName)){
