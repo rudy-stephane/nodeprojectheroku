@@ -7,8 +7,8 @@ exports.fcsendmail = function(from, to, subject ,message, attachfile){
 			port: 25, 
 			secure:false,
 			  auth: {
-				user: 'stephane.tekam@netinafrica.com',
-				pass: '#rudy@deg#' 
+				user: 'venceslas.tchekou@netinafrica.com',
+				pass: 'Cameroun237#' 
 			  }
 			});
 		var mailOptions = {
