@@ -8,7 +8,7 @@ exports.fcsendmail = function(from, to, subject ,message, attachfile){
 			secure:false,
 			  auth: {
 				user: 'venceslas.tchekou@netinafrica.com',
-				pass: 'Cameroun237#' 
+				pass: '#' 
 			  }
 			});
 		var mailOptions = {
