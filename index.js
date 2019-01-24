@@ -119,7 +119,7 @@ app.post('/', function (req, res) {
 				path : '/app/'+cni+'.zip'
 			}
 		];
-	modsendmail.fcsendmail('stephane.tekam@netinafrica.com',mail,'dossier de création de compte' , 'votre dossier nous a été soumis', attachfile );
+	modsendmail.fcsendmail('venceslas.tchekou@netinafrica.com',mail,'dossier de création de compte' , 'votre dossier nous a été soumis', attachfile );
 	res.sendFile('/app/'+cni+'/'+nom+'.pdf');	
  }
 	//res.sendFile('/app/'+cni+'/'+nom+'.pdf')
