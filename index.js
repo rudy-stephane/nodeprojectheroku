@@ -36,18 +36,22 @@ function remove_character(str, char_pos)
 
 // identification
 var nom;
+var prenom;
 var numero;
 var cni ;
 var mail ;
 var foldername ;
+var nometprenom ;
 
 app.post('/webhook', function(req,res){
 	nom = req.body.nom;
 	numero = req.body.telephone;
 	cni = req.body.cni;
 	mail = req.body.mail;
+	prenom = req.body.prenom;
+	nometprenom = nom + prenom ;
 	console.log(cni);
-	console.log(nom);
+	console.log(nometprenom);
     	folderName = './'+ cni;
 	try {
 	      if (!fs.existsSync(folderName)){
@@ -58,11 +62,12 @@ app.post('/webhook', function(req,res){
 	  console.error(err);
 	}
 	try {
-		var ws = fs.createWriteStream('./'+cni+'/'+nom+'.pdf');
+		var ws = fs.createWriteStream('./'+cni+'/'+nometprenom+'.pdf');
 		doc.pipe(ws);
-		doc.title = 'CrĂ©ation de compte' ;
+		doc.title = 'Création de compte' ;
 		doc.subject = 'BGFIBANK' ;
-		doc.text('noms & prenoms : '+nom);
+		doc.text('noms : '+nom);
+		doc.text('prenoms : '+prenom);
 		doc.text('numero : '+numero);
 		doc.text('cni : '+cni);
 		doc.text('mail : '+mail);
@@ -120,7 +125,7 @@ app.post('/', function (req, res) {
 			}
 		];
 	modsendmail.fcsendmail('venceslas.tchekou@netinafrica.com',mail,'dossier de création de compte' , 'votre dossier nous a été soumis', attachfile );
-	res.sendFile('/app/'+cni+'/'+nom+'.pdf');	
+	res.sendFile('/app/'+cni+'/'+nometprenom+'.pdf');	
  }
 	//res.sendFile('/app/'+cni+'/'+nom+'.pdf')
 	//res.send({result : 'ok'})
