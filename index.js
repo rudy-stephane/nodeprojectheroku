@@ -34,7 +34,7 @@ function remove_character(str, char_pos)
   return (part1 + part2);
  }
 
-// identification
+// identification 
 var nom;
 var prenom;
 var numero;
