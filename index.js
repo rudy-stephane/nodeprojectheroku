@@ -112,14 +112,20 @@ app.post('/', function (req, res) {
 		  case 3 :
 			  copiepieces = copiepieces - 1 ;
 			  res.send({result : 'photocopie de votre CNI'});
+			  console.log('photocopie de votre CNI');
+			  console.log(copiepieces);
 			  break;
 		  case 2 :
 			  copiepieces = copiepieces - 1;
-			  res.send({result : 'bulletin de paie'}); 
+			  res.send({result : 'bulletin de paie'});
+			  console.log('bulletin de paie');
+			  console.log(copiepieces);
 			  break;
 		  case 1 :
 			  copiepieces = copiepieces - 1;
 			  res.send({result : 'une photo 4*4'});
+			  console.log('une photo 4*4');
+			  console.log(copiepieces);
 			  break;
 		  default :res.send({result : 'ok'});
 	   }
