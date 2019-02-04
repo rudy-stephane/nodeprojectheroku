@@ -85,6 +85,7 @@ app.post('/webhook', function(req,res){
 res.send({reuslt : 'ok'});
 })
 var c = 0 ;
+var copiepieces = 4 ;
 app.post('/', function (req, res) {
   if(req.body.rep == 'sendfile'){
 	  console.log(req.body.rep+'  valeur cherchée');
@@ -106,7 +107,23 @@ app.post('/', function (req, res) {
 	  response.pipe(file);
 		console.log(req.body.rep+'  valeur cherchée');
 	});
-	  res.send({result : 'ok'});
+	  
+	  switch(copiepieces){
+		  case 3 :
+			  copiepieces = copiepieces - 1 ;
+			  res.send({result : 'photocopie de votre CNI'});
+			  break;
+		  case 2 :
+			  copiepieces = copiepieces - 1;
+			  res.send({result : 'bulletin de paie'}); 
+			  break;
+		  case 1 :
+			  copiepieces = copiepieces - 1;
+			  res.send({result : 'une photo 4*4'});
+			  break;
+		  default :res.send({result : 'ok'});
+	   }
+	  //res.send({result : 'ok'});
   }
  else if(req.body.rep == 'sendans')
  {
