@@ -85,7 +85,7 @@ app.post('/webhook', function(req,res){
 res.send({reuslt : 'ok'});
 })
 var c = 0 ;
-var copiepieces = 4 ;
+var copiepieces = 3;
 app.post('/', function (req, res) {
   if(req.body.rep == 'sendfile'){
 	  console.log(req.body.rep+'  valeur cherchée');
