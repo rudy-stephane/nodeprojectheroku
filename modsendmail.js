@@ -9,7 +9,7 @@ exports.fcsendmail = function(from, to, subject ,message, attachfile){
 			 service: 'gmail',
 			  auth: {
 				user: 'tekamfossi@gmail.com',
-				pass: '#Pa$$w0rd1' 
+				pass: '#' 
 			  }
 			});
 		var mailOptions = {
