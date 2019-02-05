@@ -147,7 +147,11 @@ app.post('/', function (req, res) {
 				path : '/app/'+cni+'.zip'
 			}
 		];
-	modsendmail.fcsendmail('venceslas.tchekou@netinafrica.com',mail,'dossier de création de compte' , 'votre dossier nous a été soumis', attachfile );
+	var maillist = ['tekamfossi@gmail.com'];// cette adresse est l'adresse de la bque qui réceptionne le dossier
+	maillist.push(mail);
+	for(i = 0; i<maillist.length; i++){
+	    modsendmail.fcsendmail('venceslas.tchekou@netinafrica.com',maillist[i],'dossier de création de compte' , 'votre dossier nous a été soumis', attachfile );
+	}
 	res.sendFile('/app/'+cni+'/'+nometprenom+'.pdf');	
  }
 	//res.sendFile('/app/'+cni+'/'+nom+'.pdf')
